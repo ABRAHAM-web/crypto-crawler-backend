@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
 require('dotenv').config(); // Load variables from .env
+const util = require('util');
 
 // Create MySQL connection
 const db = mysql.createConnection({
@@ -8,6 +9,8 @@ const db = mysql.createConnection({
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_DATABASE || 'cryptocrawler'
 });
+
+db.query = util.promisify(db.query); 
 
 // Connect to MySQL
 db.connect((err) => {
