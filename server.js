@@ -167,9 +167,6 @@ app.post('/commodities/:id/purchase', async (req, res) => {
     }
 });
 
-
-
-
 // Start the server
 const PORT = 4000;
 app.listen(PORT, () => {
